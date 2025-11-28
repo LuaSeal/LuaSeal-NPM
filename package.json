@@ -1,0 +1,33 @@
+{
+  "name": "luaseal",
+  "version": "1.0.15",
+  "main": "main/src.js",
+  "types": "main/src.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node main/src.js",
+    "test": "node main/test.js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.0",
+    "typescript": "^5.6.3"
+  },
+  "keywords": [
+    "luaseal",
+    "lua whitelist",
+    "lua whitelist service",
+    "whitelist service",
+    "lua seal",
+    "lua",
+    "whitelist",
+    "roblox",
+    "wave",
+    "roblox lua",
+    "lua protect",
+    "lua auth",
+    "luauth"
+  ],
+  "author": "globe",
+  "license": "MIT",
+  "description": "LuaSeal API Wrapper"
+}
