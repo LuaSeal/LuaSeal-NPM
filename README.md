@@ -1,16 +1,13 @@
 # LuaSeal
 
 [![Version](https://img.shields.io/npm/v/luaseal)](https://www.npmjs.com/package/luaseal)
-[![Node.js](https://img.shields.io/node/v/luaseal)](https://nodejs.org/)
 [![License](https://img.shields.io/npm/l/luaseal)](LICENSE)
 
 This Api Wrapper is used for LuaSeal, it provides a secure and minimal interface for managing API keys in projects. Easily generate, update, whitelist, blacklist, and manage API keys with full TypeScript support and zero dependencies.
 
----
+[<img src="https://img.shields.io/badge/View%20on%20npm-luaseal-red?logo=npm&style=for-the-badge">](https://www.npmjs.com/package/luaseal)
 
-# NPM Link
-[![npm version](https://img.shields.io/npm/v/luaseal)](https://www.npmjs.com/package/luaseal)
-[![view on npm](https://img.shields.io/badge/npm-luaseal-red)](https://www.npmjs.com/package/luaseal)
+---
 
 ## Installation
 
