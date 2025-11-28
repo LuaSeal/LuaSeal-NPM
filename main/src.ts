@@ -1,7 +1,12 @@
 class LuaSealError extends Error {
-    constructor(message: string) {
+    additionalInfo?: any;
+
+    constructor(message: string, additionalInfo: { key: string, value: any } = { key: "", value: null }) {
         super(message);
         this.name = this.constructor.name;
+
+        Object.setPrototypeOf(this, LuaSealError.prototype);
+        if (additionalInfo.key) this.additionalInfo = { [additionalInfo.key]: additionalInfo.value };
     }
 }
 
@@ -33,7 +38,7 @@ class LuaSeal {
             const json = await response.json();
 
             if (!json.success)
-                throw new LuaSealError(json.response);
+                throw new LuaSealError(json.response, endpoint == "resethwid" ? { key: "unix", value: json.unix ? json.unix : null } : { key: "", value: null });
 
             return json;
         } catch(error) {
