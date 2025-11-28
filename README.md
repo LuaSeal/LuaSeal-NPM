@@ -4,6 +4,7 @@ This Api Wrapper is used for LuaSeal, it provides a secure and minimal interface
 
 [![Version](https://img.shields.io/npm/v/luaseal)](https://www.npmjs.com/package/luaseal)
 [![License](https://img.shields.io/npm/l/luaseal)](LICENSE)
+[![Downloads](https://img.shields.io/npm/dm/luaseal)](https://www.npmjs.com/package/luaseal)
 
 [<img src="https://img.shields.io/badge/View%20on%20npm-luaseal-red?logo=npm&style=for-the-badge">](https://www.npmjs.com/package/luaseal)
 
