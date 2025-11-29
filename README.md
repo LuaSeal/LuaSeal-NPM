@@ -1,6 +1,6 @@
 # LuaSeal
 
-This Api Wrapper is used for LuaSeal, it provides a secure and minimal interface for managing API keys in projects. Easily generate, update, whitelist, blacklist, and manage API keys with full TypeScript support and zero dependencies.
+An Api Wrapper used for [LuaSeal](https://luaseal.com), it provides a secure and minimal interface for managing everything related to your profect. Making custom usage of the api very easy.
 
 [![Version](https://img.shields.io/npm/v/luaseal)](https://www.npmjs.com/package/luaseal)
 [![License](https://img.shields.io/npm/l/luaseal)](LICENSE)
@@ -127,8 +127,7 @@ try {
 
 ## Requirements
 
-- Node.js 18+
-- TypeScript (optional)
+- Node.js (or TypeScript)
 - Valid LuaSeal API key
 
 ---
