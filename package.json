@@ -1,6 +1,6 @@
 {
   "name": "@luaseal/npm",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "main": "main/src.js",
   "types": "main/src.d.ts",
   "scripts": {
