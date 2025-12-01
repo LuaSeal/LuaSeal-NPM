@@ -10,7 +10,7 @@ class LuaSealError extends Error {
     }
 }
 
-class LuaSeal {
+export class LuaSeal {
     private api_key: string;
     private project_id: string;
 
