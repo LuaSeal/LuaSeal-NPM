@@ -1,6 +1,6 @@
 {
   "name": "luaseal",
-  "version": "1.0.16",
+  "version": "1.0.18",
   "main": "main/src.js",
   "types": "main/src.d.ts",
   "scripts": {
@@ -29,7 +29,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/LuaSeal/LuaSeal-NPM"
+    "url": "https://github.com/LuaSeal/LuaSeal-NPM",
+    "directory": "main"
   },
   "author": "globe",
   "license": "MIT",

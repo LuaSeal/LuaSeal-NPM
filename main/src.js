@@ -54,6 +54,28 @@ class LuaSeal {
         const request = await this.serverRequest("users", { discord_id, ...options });
         return request;
     }
+    async importMassKeys(key_list = []) {
+        const mapped = key_list.map((data) => {
+            if (!data.key_value)
+                throw new LuaSealError("Invalid key list format, please read https://docs.luaseal.com to see the correct format");
+            if (data.key_value.length < 10)
+                throw new LuaSealError(`Key values must exceed 10 characters (${data.key_value})`);
+            if (data.key_value.length > 35)
+                throw new LuaSealError(`Key values cannot exceed 35 characters (${data.key_value})`);
+            if (data.note && data.note.length > 100)
+                throw new LuaSealError(`Key notes cannot exceed 100 characters (${data.key_value})`);
+            return {
+                key_value: data.key_value,
+                discord_id: data.discord_id || null,
+                key_days: data.key_days || -1,
+                note: data.note || null
+            };
+        });
+        if (mapped.length == 0)
+            throw new LuaSealError("Invalid key list format, please read https://docs.luaseal.com to see the correct format");
+        const request = await this.serverRequest("massusers", { key_list: mapped });
+        return request;
+    }
     async unwhitelistKey(user_key) {
         if (!user_key)
             throw new LuaSealError("User key is required (argument #1)");
