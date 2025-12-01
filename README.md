@@ -73,7 +73,6 @@ function getFutureUnix(days) {
     await seal.unwhitelistKey(key);
 })();
 ```
-
 ---
 
 ## API
@@ -106,6 +105,7 @@ resetKeyHwid | user_key: string, options? { force?: boolean } | Resets the HWID 
 Method | Parameters | Description
 ------ | ---------- | -----------
 whitelistDiscordUser | discord_id: string, options? { key_days?: number, note?: string } | Whitelists a Discord user. `discord_id` is required; `options` are optional.
+importMassKeys | [ { key_value: string, discord_id?: string; key_days?: number; note?: string } ] | Mass imports keys to the selected project, `key_value` is required; everything else isn't
 unwhitelistKey | user_key: string | Removes a key from whitelist. `user_key` is required.
 getKeyInfo | options? { user_key?: string, discord_id?: string, hwid?: string } | Retrieves information about a key or user. All fields in `options` are optional.
 getAllKeys | - | Retrieves all keys for the project. No parameters required.
