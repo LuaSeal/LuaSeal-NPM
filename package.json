@@ -1,6 +1,6 @@
 {
   "name": "luaseal",
-  "version": "1.0.31",
+  "version": "1.0.33",
   "main": "dist/src.js",
   "types": "dist/src.d.ts",
   "scripts": {

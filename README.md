@@ -19,8 +19,7 @@ An Api Wrapper used for [LuaSeal](https://luaseal.com), it provides a secure and
 
 ## Usage
 ```js
-import { LuaSeal } from "luaseal";
-//const LuaSeal = require("luaseal");
+const LuaSeal = require("luaseal");
 
 const seal = new LuaSeal("seal_yourApiKeyHere", "yourProjectId");
 
