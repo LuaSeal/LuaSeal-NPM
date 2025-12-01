@@ -1,6 +1,5 @@
 "use strict";
 class LuaSealError extends Error {
-    additionalInfo;
     constructor(message, additionalInfo = { key: "", value: null }) {
         super(message);
         this.name = this.constructor.name;
@@ -10,8 +9,6 @@ class LuaSealError extends Error {
     }
 }
 class LuaSeal {
-    api_key;
-    project_id;
     constructor(api_key, project_id) {
         if (!api_key)
             throw new Error("API key is required (argument #1)");
@@ -25,7 +22,7 @@ class LuaSeal {
     async serverRequest(endpoint, data, method = "POST") {
         try {
             const response = await fetch(`https://luaseal.com/api/projects/${this.project_id}/${endpoint}`, {
-                method: method,
+                method,
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": this.api_key
@@ -35,13 +32,15 @@ class LuaSeal {
             });
             const json = await response.json();
             if (!json.success)
-                throw new LuaSealError(json.response, endpoint == "resethwid" ? { key: "unix", value: json.unix ? json.unix : null } : { key: "", value: null });
+                throw new LuaSealError(json.response, endpoint == "resethwid" ? { key: "unix", value: json.unix ?? null } : { key: "", value: null });
             return json;
         }
         catch (error) {
             const e = error;
-            if (e?.name === "TimeoutError" || e?.code === "ABORT_ERR")
+            if (e?.name === "TimeoutError" || e?.code === "ABORT_ERR") {
                 throw new LuaSealError("Request timed out");
+            }
+            throw e;
         }
     }
     async generateKey(options = {}) {

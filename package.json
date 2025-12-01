@@ -1,12 +1,12 @@
 {
   "name": "luaseal",
-  "version": "1.0.25",
-  "main": "main/src.js",
-  "types": "main/src.d.ts",
+  "version": "1.0.31",
+  "main": "dist/src.js",
+  "types": "dist/src.d.ts",
   "scripts": {
     "build": "tsc",
-    "start": "node main/src.js",
-    "test": "node main/test.js"
+    "start": "node main/test.cjs",
+    "test": "node main/test.cjs"
   },
   "devDependencies": {
     "@types/node": "^22.5.0",

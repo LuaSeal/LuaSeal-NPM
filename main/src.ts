@@ -26,7 +26,7 @@ class LuaSeal {
     private async serverRequest(endpoint: string, data: any, method: "GET" | "POST" | "PATCH" | "DELETE" = "POST") {
         try {
             const response = await fetch(`https://luaseal.com/api/projects/${this.project_id}/${endpoint}`, {
-                method: method,
+                method,
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": this.api_key
@@ -38,15 +38,21 @@ class LuaSeal {
             const json = await response.json();
 
             if (!json.success)
-                throw new LuaSealError(json.response, endpoint == "resethwid" ? { key: "unix", value: json.unix ? json.unix : null } : { key: "", value: null });
+                throw new LuaSealError(json.response, endpoint == "resethwid" ? { key: "unix", value: json.unix ?? null } : { key: "", value: null });
 
             return json;
-        } catch(error) {
+
+        } catch (error) {
             const e = error as any;
-            if (e?.name === "TimeoutError" || e?.code === "ABORT_ERR")
+
+            if (e?.name === "TimeoutError" || e?.code === "ABORT_ERR") {
                 throw new LuaSealError("Request timed out");
+            }
+
+            throw e;
         }
     }
+
 
     public async generateKey(options: { key_days?: number, note?: string } = {}) {
         const request = await this.serverRequest("users", { ...options });
